@@ -8,11 +8,12 @@ function Card({User}) {
 
     useEffect(() => {
       return () => {
-          setUser(User)
+          
       }
     }, [])
 
-    function edit () {
+    function edit (user) {
+      setUser(user)
        navigate('/edit')
     }
     
@@ -20,8 +21,9 @@ function Card({User}) {
   return (
     <div>
         <h1>{User.name}</h1>
+        <h2>{User.email}</h2>
         <button onClick={() => console.log(user)}>Print</button>
-        <button onClick={edit}>Edit</button>
+        <button onClick={() =>edit(User)}>Edit</button>
     </div>
   )
 }

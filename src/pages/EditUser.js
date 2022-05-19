@@ -1,8 +1,15 @@
 import{useContext}from 'react'
 import {useFormik} from 'formik'
 import { UserContext } from '../context/userContext';
+import { db } from '../firebase.config';
+import {updateDoc,doc} from 'firebase/firestore'
 
 function EditUser() {
+  // const userCollectionRef = collection(db,'users')
+  const updateUser = async (id,values) =>{
+    const userDoc = doc(db,'users',id)
+    await updateDoc(userDoc,values)
+  }
 
 
   const {user,setUser} = useContext(UserContext);
@@ -15,7 +22,7 @@ function EditUser() {
         phoneNumber:user.phoneNumber,
         cpf:user.cpf
     }, onSubmit:async  values => {
-        
+        updateUser(user.id,values)
         console.log(values)
     }
 })
