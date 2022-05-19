@@ -3,6 +3,7 @@ import {useFormik} from 'formik'
 import { UserContext } from '../context/userContext';
 import { db } from '../firebase.config';
 import {updateDoc,doc} from 'firebase/firestore'
+import InputMask from 'react-input-mask'
 
 function EditUser() {
   // const userCollectionRef = collection(db,'users')
@@ -38,7 +39,8 @@ function EditUser() {
 
                <div>
                 <label htmlFor="birthday">Data de Nascimento</label>
-                <input type="text" id='birthday' onChange={formik.handleChange} value={formik.values.birthday}/>
+                
+               <InputMask mask='**/**/****' type="text" id='birthday' onChange={formik.handleChange} value={formik.values.birthday}/>
                </div>
 
                <div>
@@ -48,12 +50,14 @@ function EditUser() {
 
                <div>
                 <label htmlFor="phoneNumber">Telefone</label>
-                <input type="text" id='phoneNumber' onChange={formik.handleChange} value={formik.values.phoneNumber} />
+               
+                <InputMask mask='(**) *****-****' type="text" id='phoneNumber' onChange={formik.handleChange} value={formik.values.phoneNumber}/>
                </div>
 
                <div>
                 <label htmlFor="cpf">CPF</label>
-                <input type="text" id='cpf' onChange={formik.handleChange} value={formik.values.cpf} />
+                
+                <InputMask mask='***.***.***-**' type="text" id='cpf' onChange={formik.handleChange} value={formik.values.cpf}/>
                </div>
 
 

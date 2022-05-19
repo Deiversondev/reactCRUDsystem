@@ -3,6 +3,9 @@ import styles from './create.module.css'
 import { useState,useEffect } from 'react';
 import { db } from '../firebase.config';
 import { collection,getDocs,addDoc,updateDoc,deleteDoc,doc} from 'firebase/firestore';
+import InputMask from 'react-input-mask'
+
+
 
 
 function Create(){
@@ -22,6 +25,7 @@ const createUser = async (values) =>{
         }, onSubmit:async  values => {
             await createUser(values)
             console.log(values)
+            formik.resetForm()
         }
     })
     return(
@@ -34,7 +38,7 @@ const createUser = async (values) =>{
 
                <div className={styles.input_container}>
                 <label htmlFor="birthday">Data de Nascimento</label>
-                <input type="text" id='birthday' onChange={formik.handleChange} value={formik.values.birthday}/>
+                <InputMask mask='**/**/****' type="text" id='birthday' onChange={formik.handleChange} value={formik.values.birthday}/>
                </div>
 
                <div className={styles.input_container}>
@@ -44,12 +48,12 @@ const createUser = async (values) =>{
 
                <div className={styles.input_container}>
                 <label htmlFor="phoneNumber">Telefone</label>
-                <input type="text" id='phoneNumber' onChange={formik.handleChange} value={formik.values.phoneNumber} />
+                <InputMask mask='(**) *****-****' type="text" id='phoneNumber' onChange={formik.handleChange} value={formik.values.phoneNumber}/>
                </div>
 
                <div className={styles.input_container}>
                 <label htmlFor="cpf">CPF</label>
-                <input type="text" id='cpf' onChange={formik.handleChange} value={formik.values.cpf} />
+                <InputMask mask='***.***.***-**' type="text" id='cpf' onChange={formik.handleChange} value={formik.values.cpf}/>
                </div>
 
 
