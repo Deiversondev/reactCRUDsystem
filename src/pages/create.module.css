@@ -1,0 +1,18 @@
+input {
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid rgb(128, 125, 125);
+    /* width: 60%; */
+}
+
+.input_container {
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+    flex-direction: column;
+}
+
+.form_container {
+    width: 80%;
+    margin: 0 auto;
+}

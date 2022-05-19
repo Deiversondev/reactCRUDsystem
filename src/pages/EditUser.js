@@ -59,7 +59,7 @@ function EditUser() {
 
                <button type='submit'>Submit</button>
            </form>
-<button onClick={() =>  console.log(user)}>U</button>
+{/* <button onClick={() =>  console.log(user)}>U</button> */}
     </div>
   )
 }

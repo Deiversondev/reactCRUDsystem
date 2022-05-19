@@ -15,14 +15,8 @@ function Users(){
         const data = await getDocs(userCollectionRef)
         setUsers(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
        }
-    const deleteUser = async(id) =>{
-        const userDoc = doc(db,'users',id);
-        await deleteDoc(userDoc);
-        getUsers()
-    }
-    function editUser() {
-        window.location.href = '/edit'
-    }
+   
+   
 
     useEffect(() => {
       getUsers()
@@ -31,7 +25,7 @@ function Users(){
     return(
         <div>
             { users && users.map(user => (
-                <Card User={user}/>
+                <Card getUsers={getUsers} User={user}/>
             )) }
         </div>
     )
